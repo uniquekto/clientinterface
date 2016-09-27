@@ -86,7 +86,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+        controller: 'DashCtrl'
       }
     }
   });
