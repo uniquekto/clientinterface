@@ -5,28 +5,27 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
 
-  <!-- Dashboard Tab -->
-  <ion-tab  icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/dash">
-    <ion-nav-view name="tab-dash"></ion-nav-view>
-  </ion-tab>
-  
-  <!-- Search Tab -->
-  <ion-tab  icon-off="ion-ios-search" icon-on="ion-ios-search-strong" href="#/tab/search">
-    <ion-nav-view name="tab-search"></ion-nav-view>
+  <!-- Home Tab -->
+  <ion-tab title="Home" icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="#/tab/home">
+    <ion-nav-view name="tab-home"></ion-nav-view>
   </ion-tab>
 
-  <!-- Camera Tab -->
-  <ion-tab icon-off="ion-ios-camera-outline" icon-on="ion-ios-camera" href="#/tab/post">
-    <ion-nav-view name="tab-post"></ion-nav-view>
+  <!-- Browse Tab -->
+  <ion-tab title="Browse" icon-off="ion-ios-search" icon-on="ion-ios-search-strong" href="#/tab/browse">
+    <ion-nav-view name="tab-browse"></ion-nav-view>
   </ion-tab>
-  
-  <!-- Chats Tab -->
-  <ion-tab  icon-off="ion-ios-heart-outline" icon-on="ion-ios-heart" href="#/tab/chats">
-    <ion-nav-view name="tab-chats"></ion-nav-view>
+
+  <!-- Post Tab -->
+  <ion-tab title="Post" icon-off="ion-ios-camera-outline" icon-on="ion-ios-camera" href="#/post">    
+  </ion-tab>
+
+  <!-- Activity Tab -->
+  <ion-tab title="Activity" icon-off="ion-ios-heart-outline" icon-on="ion-ios-heart" href="#/tab/activity">
+    <ion-nav-view name="tab-activity"></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->
-  <ion-tab  icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/account">
+  <ion-tab title="Account" icon-off="ion-ios-person-outline" icon-on="ion-ios-person" href="#/tab/account">
     <ion-nav-view name="tab-account"></ion-nav-view>
   </ion-tab>
 

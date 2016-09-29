@@ -1,11 +1,7 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('someklone.services', []);
+
+angular.module('someklone', ['ionic', 'someklone.controllers', 'someklone.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,8 +19,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
+  $ionicConfigProvider.tabs.position("bottom");
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -32,66 +29,87 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
+  .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
-   })
-   
-   
-   
-      // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
-    url: '/dash',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
-      }
-    }
   })
-  
-  .state('tab.search', {
-    url: '/search',
+
+  // Each tab has its own nav history stack:
+
+  .state('tab.home', {
+    url: '/home',
     views: {
-      'tab-search': {
-        templateUrl: 'templates/tab-search.html',
-        controller: 'DashCtrl'
+      'tab-home': {
+        templateUrl: 'templates/tab-home.html',
+        controller: 'HomeCtrl'
       }
     }
   })
 
-.state('tab.post', {
-    url: '/post',
-    views: {
-      'tab-post': {
-        templateUrl: 'templates/tab-post.html',
-        controller: 'DashCtrl'
-      }
-    }
-  })
-    .state('tab.chats', {
-      url: '/chats',
+  .state('tab.browse', {
+    url: '/browse',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-notification.html',
-          controller: 'DashCtrl'
-        }
+        'tab-browse': {
+          templateUrl: 'templates/tab-browse.html',
+          controller: 'BrowseCtrl'
       }
-    })
+    }
+  })
+
+  .state('tab.browse-detail', {
+    url: '/browse/:id',
+      views: {
+        'tab-browse': {
+          templateUrl: 'templates/browse-detail.html',
+          controller: 'BrowseDetailCtrl'
+      }
+    }
+  })
+
+  .state('tab.browse-search', {
+    url: '/search',
+      views: {
+        'tab-browse': {
+          templateUrl: 'templates/tab-search.html',
+          controller: 'SearchCtrl'
+      }
+    }
+  })  
+
+  .state('tab.activity', {
+    url: '/activity',
+      views: {
+        'tab-activity': {
+          templateUrl: 'templates/tab-activity.html',
+          controller: 'ActivityCtrl'
+      }
+    }
+  })
 
   .state('tab.account', {
     url: '/account',
     views: {
       'tab-account': {
         templateUrl: 'templates/tab-account.html',
-        controller: 'DashCtrl'
+        controller: 'AccountCtrl'
       }
     }
+  })
+
+  .state('post', {
+    url: '/post',
+    templateUrl: 'templates/post.html',
+    controller: 'PostCtrl'    
+  })
+
+  .state('post-confirm', {
+    url: '/confirm',
+    templateUrl: 'templates/post-confirm.html',
+    controller: 'PostConfirmCtrl'    
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/home');
 
 });
